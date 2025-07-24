@@ -1,38 +1,559 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sitio oficial de BlackTechSec - Seguridad informática y tecnología." />
-    <title>BlackTechSec</title>
-    <link rel="icon" type="image/png" href="img/favicon.png" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Technology Security</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        
+        body.light-mode {
+            background-color: #fff;
+            color: #333;
+        }
+        
+        body.light-mode .about-me {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        body.light-mode .social-icon {
+            color: #333;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        @media (max-width: 768px) {
+            #particles-js {
+                display: none;
+            }
+
+            .content {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+                padding: 0 0.5rem;
+            }
+
+            h1::after {
+                bottom: -5px;
+                height: 2px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .skills-list {
+                justify-content: center;
+            }
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(58, 123, 213, 0.3);
+            position: relative;
+            display: inline-block;
+            padding: 0 1rem;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            border-radius: 3px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 3rem;
+        }
+
+        .about-me {
+            background: rgba(20, 20, 20, 0.7);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .about-me h2 {
+            color: #3a7bd5;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .about-me p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .github-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+            color: white;
+            min-width: 160px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(58, 123, 213, 0.4);
+            border: none;
+            cursor: pointer;
+            font-size: 1.05rem;
+            margin-top: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            gap: 8px;
+        }
+
+        .github-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(58, 123, 213, 0.6);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: translateY(-3px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(-3px); }
+        }
+
+        .github-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .github-btn:hover::before {
+            left: 100%;
+        }
+
+        .skills {
+            margin: 2rem 0;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skills-list li {
+            background: rgba(58, 123, 213, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            border: 1px solid rgba(58, 123, 213, 0.5);
+            list-style: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .skills-list li:hover {
+            transform: translateY(-2px);
+            background: rgba(58, 123, 213, 0.2);
+            box-shadow: 0 4px 8px rgba(58, 123, 213, 0.2);
+        }
+
+        .skills-list li::before {
+            content: '✓';
+            color: #3a7bd5;
+            font-weight: bold;
+        }
+
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: rgba(58, 123, 213, 0.5);
+            pointer-events: none;
+            mix-blend-mode: screen;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s;
+        }
+
+        .cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(0, 210, 255, 0.2);
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: transform 0.3s, width 0.3s, height 0.3s;
+        }
+
+        .social-links {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            margin: 0 1rem;
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            background: rgba(58, 123, 213, 0.5);
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(58, 123, 213, 0.3);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(58, 123, 213, 0.5);
+            background: rgba(58, 123, 213, 0.8);
+            animation: pulse 1.5s infinite;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+            border-radius: 50%;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 15px rgba(58, 123, 213, 0.4);
+            transition: all 0.3s ease;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+                line-height: 1.2;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+            
+            .about-me {
+                padding: 1.2rem;
+            }
+
+            .tagline,
+            .about-me p,
+            .about-me h2,
+            .github-btn {
+                font-size: 0.9rem;
+            }
+
+            .skills-list {
+                gap: 0.5rem;
+            }
+
+            .skills-list li {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .social-icon {
+                margin: 0 0.5rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .social-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .social-icon {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="background"></div>
-    <header>
-        <h1>BlackTechSec</h1>
-        <p>Seguridad Informática y Tecnología</p>
-    </header>
-    <section id="sobre-mi">
-        <h2>Sobre mí</h2>
-        <p>Soy Jair Alexis Martínez Morales, estudiante del último semestre de Ingeniería de Sistemas y cursando una especialización en Seguridad Informática. Apasionado por la tecnología, la ciberseguridad y los desafíos digitales.</p>
-    </section>
-    <section id="proyectos">
-        <h2>Proyectos</h2>
-        <p>Revisa mis proyectos en GitHub: <a href="https://github.com/alexis2487" target="_blank">github.com/alexis2487</a></p>
-    </section>
-    <footer>
-        <div class="social-icons">
-            <a href="https://github.com/alexis2487" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-        </div>
-        <p>&copy; 2025 BlackTechSec</p>
+    <div id="particles-js"></div>
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <div class="content">
+        <header>
+            <h1>Black Technology Security</h1>
+            <p class="tagline">Innovando en seguridad tecnológica</p>
+        </header>
+        
+        <section class="about-me">
+            <h2>Sobre mí</h2>
+            <p>Soy un estudiante de Ingeniería de Sistemas con especialidad en Seguridad Informática. Apasionado por la ciberseguridad, el hacking ético y el desarrollo de soluciones tecnológicas seguras.</p>
+            <p>Mi enfoque se centra en la protección de sistemas, análisis de vulnerabilidades y desarrollo de medidas preventivas contra amenazas cibernéticas.</p>
+            
+            <div class="skills">
+                <h3>Tecnologías que domino:</h3>
+                <ul class="skills-list">
+                    <li>Pentesting</li>
+                    <li>Criptografía</li>
+                    <li>Network Security</li>
+                    <li>Ethical Hacking</li>
+                    <li>Python</li>
+                </ul>
+            </div>
+            
+            <a href="https://github.com/tu-usuario" target="_blank" class="github-btn">
+                <i class="fab fa-github"></i> Ver mi GitHub
+            </a>
+        </section>
+    </div>
+
+    <footer class="social-links">
+        <a href="#" class="social-icon">
+            <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="#" class="social-icon">
+            <i class="fab fa-twitter"></i> Twitter
+        </a>
+        <a href="#" class="social-icon">
+            <i class="fas fa-envelope"></i> Email
+        </a>
     </footer>
-    <script src="js/cursor.js"></script>
-    <script src="js/puppies.js"></script>
+    
+    <button class="theme-toggle">🌓</button>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Configuración de partículas
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#3a7bd5"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 2,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#3a7bd5",
+                        "opacity": 0.3,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 1,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": true,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "repulse"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "repulse": {
+                            "distance": 100,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+
+            // Animación del cursor personalizado
+            const cursor = document.querySelector('.custom-cursor');
+            const follower = document.querySelector('.cursor-follower');
+            const links = document.querySelectorAll('a');
+
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                
+                setTimeout(() => {
+                    follower.style.left = e.clientX + 'px';
+                    follower.style.top = e.clientY + 'px';
+                }, 100);
+            });
+
+            links.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    cursor.style.width = '10px';
+                    cursor.style.height = '10px';
+                    cursor.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+                    
+                    follower.style.width = '30px';
+                    follower.style.height = '30px';
+                    follower.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+                });
+                
+                link.addEventListener('mouseleave', () => {
+                    cursor.style.width = '20px';
+                    cursor.style.height = '20px';
+                    cursor.style.backgroundColor = 'rgba(58, 123, 213, 0.5)';
+                    
+                    follower.style.width = '40px';
+                    follower.style.height = '40px';
+                    follower.style.backgroundColor = 'rgba(0, 210, 255, 0.2)';
+                });
+            });
+
+            // Theme toggle functionality
+            const themeToggle = document.querySelector('.theme-toggle');
+            let darkMode = localStorage.getItem('darkMode') === 'false' ? false : true;
+            
+            function applyTheme() {
+                document.body.classList.toggle('light-mode', !darkMode);
+                themeToggle.textContent = darkMode ? '🌓' : '🌒';
+                localStorage.setItem('darkMode', darkMode);
+            }
+            
+            themeToggle.addEventListener('click', () => {
+                darkMode = !darkMode;
+                applyTheme();
+            });
+            
+            // Apply saved theme on load
+            applyTheme();
+        });
+    </script>
 </body>
 </html>
