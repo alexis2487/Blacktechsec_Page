@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foro de Noticias</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header, footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: #111;
+        }
+        main {
+            flex: 1;
+            max-width: 1000px;
+            margin: auto;
+            padding: 2rem;
+        }
+        a.back-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: .8rem 1.5rem;
+            background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+        a.back-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(58, 123, 213, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Foro de Noticias</h1>
+    </header>
+    <main>
+        <p>Próximamente podrás encontrar aquí contenido informativo y discusiones de la comunidad.</p>
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+    </main>
+    <footer>
+        <p>&copy; 2024 Jair Alexis Martinez</p>
+    </footer>
+</body>
+</html>
