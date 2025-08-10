@@ -12,19 +12,38 @@
     a { color:#7bd5ff; }
     a.back-link { display:inline-block; margin-top:2rem; padding:.8rem 1.5rem; background:linear-gradient(135deg, #3a7bd5, #00d2ff); color:white; border-radius:30px; text-decoration:none; font-weight:bold; transition:.3s; }
     a.back-link:hover { transform:translateY(-3px); box-shadow:0 4px 15px rgba(58,123,213,0.6); }
+    section { margin-bottom:2rem; }
+    h2 { color:#7bd5ff; }
+    ul { list-style:disc; padding-left:1.5rem; }
   </style>
 </head>
 <body>
-  <h1>Vulnerabilidades críticas en HashiCorp Vault y CyberArk Conjur/Secrets Manager (parches disponibles)</h1>
-  <img src="https://source.unsplash.com/1600x800/?vault,lock,server,security" alt="Bóveda de secretos">
-  <p><strong>Fecha:</strong> 6–9 de agosto de 2025 (Black Hat USA). Investigadores revelaron <strong>14 fallos</strong> combinados en <em>HashiCorp Vault</em> y en <em>CyberArk Conjur/Secrets Manager (Self-Hosted)</em>, que permiten bypass de autenticación, escalada de privilegios y, en escenarios concretos, <em>ejecución remota de código</em>.</p>
-  <p><strong>Parches recomendados:</strong> HashiCorp publicó correcciones en <strong>Vault 1.20.2 / 1.19.8 / 1.18.13 / 1.16.24</strong>. CyberArk indica fixes en <strong>Secrets Manager Self-Hosted 13.5.1/13.6.1</strong> y <strong>Conjur OSS 1.22.1</strong>. Se recomienda actualizar de inmediato, reforzar MFA/roles, y auditar claves/tokens emitidos.</p>
-  <p><strong>Fuentes:</strong>
-    <br>• Dark Reading – <a href="https://www.darkreading.com/cybersecurity-operations/critical-zero-day-bugs-cyberark-hashicorp-password-vaults" target="_blank" rel="noopener">resumen técnico desde Black Hat</a>
-    <br>• CSO Online – <a href="https://www.csoonline.com/article/4035274/researchers-uncover-rce-attack-chains-in-popular-enterprise-credential-vaults.html" target="_blank" rel="noopener">cadenas de ataque y RCE</a>
-    <br>• HashiCorp (HCSEC-2025-22) – <a href="https://support.hashicorp.com/hc/en-us/articles/43642320190611-HCSEC-2025-22-Multiple-Vulnerabilities-Impacting-HashiCorp-Vault-and-Vault-Enterprise" target="_blank" rel="noopener">boletín y versiones parcheadas</a>
-    <br>• The Hacker News – <a href="https://thehackernews.com/2025/08/cyberark-and-hashicorp-flaws-enable.html" target="_blank" rel="noopener">síntesis y riesgos empresariales</a>
-  </p>
+  <header>
+    <h1>Vulnerabilidades críticas en HashiCorp Vault y CyberArk Conjur/Secrets Manager (parches disponibles)</h1>
+    <img src="https://source.unsplash.com/1600x800/?vault,lock,server,security" alt="Bóveda de secretos">
+  </header>
+
+  <section>
+    <h2>Resumen de los hallazgos</h2>
+    <p><strong>Fecha:</strong> 6–9 de agosto de 2025 (Black Hat USA). Investigadores revelaron <strong>14 fallos</strong> combinados en <em>HashiCorp Vault</em> y en <em>CyberArk Conjur/Secrets Manager (Self-Hosted)</em>, que permiten bypass de autenticación, escalada de privilegios y, en escenarios concretos, <em>ejecución remota de código</em>. Las vulnerabilidades fueron demostradas en el escenario de la conferencia.</p>
+  </section>
+
+  <section>
+    <h2>Mitigación y buenas prácticas</h2>
+    <p><strong>Parches recomendados:</strong> HashiCorp publicó correcciones en <strong>Vault 1.20.2 / 1.19.8 / 1.18.13 / 1.16.24</strong>. CyberArk indica fixes en <strong>Secrets Manager Self-Hosted 13.5.1/13.6.1</strong> y <strong>Conjur OSS 1.22.1</strong>. Se recomienda actualizar de inmediato, reforzar MFA/roles, rotar credenciales expuestas y auditar claves/tokens emitidos.</p>
+    <img src="https://source.unsplash.com/1600x800/?cybersecurity,conference" alt="Investigadores presentando vulnerabilidades">
+  </section>
+
+  <section>
+    <h2>Fuentes</h2>
+    <ul>
+      <li>Dark Reading – <a href="https://www.darkreading.com/cybersecurity-operations/critical-zero-day-bugs-cyberark-hashicorp-password-vaults" target="_blank" rel="noopener">resumen técnico desde Black Hat</a></li>
+      <li>CSO Online – <a href="https://www.csoonline.com/article/4035274/researchers-uncover-rce-attack-chains-in-popular-enterprise-credential-vaults.html" target="_blank" rel="noopener">cadenas de ataque y RCE</a></li>
+      <li>HashiCorp (HCSEC-2025-22) – <a href="https://support.hashicorp.com/hc/en-us/articles/43642320190611-HCSEC-2025-22-Multiple-Vulnerabilities-Impacting-HashiCorp-Vault-and-Vault-Enterprise" target="_blank" rel="noopener">boletín y versiones parcheadas</a></li>
+      <li>The Hacker News – <a href="https://thehackernews.com/2025/08/cyberark-and-hashicorp-flaws-enable.html" target="_blank" rel="noopener">síntesis y riesgos empresariales</a></li>
+    </ul>
+  </section>
+
   <a href="../../noticias.html" class="back-link"><i class="fas fa-arrow-left"></i> Volver a noticias</a>
 </body>
 </html>
