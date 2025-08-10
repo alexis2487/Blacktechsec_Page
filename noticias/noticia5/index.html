@@ -1,22 +1,30 @@
+<!-- 5) 14 vulnerabilidades críticas en bóvedas de secretos (HashiCorp Vault y CyberArk Conjur/Secrets Manager) -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ciberdefensa en la Era de la Computación Cuántica</title>
+  <title>Vulnerabilidades críticas en HashiCorp Vault y CyberArk Conjur/Secrets Manager (parches disponibles)</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     body { background-color:#000; color:#fff; font-family:'Arial', sans-serif; margin:0; padding:2rem; line-height:1.6; }
     img { max-width:100%; border-radius:10px; margin:1rem 0; }
+    a { color:#7bd5ff; }
     a.back-link { display:inline-block; margin-top:2rem; padding:.8rem 1.5rem; background:linear-gradient(135deg, #3a7bd5, #00d2ff); color:white; border-radius:30px; text-decoration:none; font-weight:bold; transition:.3s; }
     a.back-link:hover { transform:translateY(-3px); box-shadow:0 4px 15px rgba(58,123,213,0.6); }
   </style>
 </head>
 <body>
-  <h1>Ciberdefensa en la Era de la Computación Cuántica</h1>
-  <img src="https://source.unsplash.com/800x400/?quantum,computing,cybersecurity" alt="Computación cuántica">
-  <p>El avance de la computación cuántica plantea nuevos retos para la criptografía y la protección de datos sensibles.</p>
-  <p>Investigadores trabajan en algoritmos post-cuánticos que garanticen la seguridad de la información en el futuro cercano.</p>
+  <h1>Vulnerabilidades críticas en HashiCorp Vault y CyberArk Conjur/Secrets Manager (parches disponibles)</h1>
+  <img src="https://source.unsplash.com/1600x800/?vault,lock,server,security" alt="Bóveda de secretos">
+  <p><strong>Fecha:</strong> 6–9 de agosto de 2025 (Black Hat USA). Investigadores revelaron <strong>14 fallos</strong> combinados en <em>HashiCorp Vault</em> y en <em>CyberArk Conjur/Secrets Manager (Self-Hosted)</em>, que permiten bypass de autenticación, escalada de privilegios y, en escenarios concretos, <em>ejecución remota de código</em>.</p>
+  <p><strong>Parches recomendados:</strong> HashiCorp publicó correcciones en <strong>Vault 1.20.2 / 1.19.8 / 1.18.13 / 1.16.24</strong>. CyberArk indica fixes en <strong>Secrets Manager Self-Hosted 13.5.1/13.6.1</strong> y <strong>Conjur OSS 1.22.1</strong>. Se recomienda actualizar de inmediato, reforzar MFA/roles, y auditar claves/tokens emitidos.</p>
+  <p><strong>Fuentes:</strong>
+    <br>• Dark Reading – <a href="https://www.darkreading.com/cybersecurity-operations/critical-zero-day-bugs-cyberark-hashicorp-password-vaults" target="_blank" rel="noopener">resumen técnico desde Black Hat</a>
+    <br>• CSO Online – <a href="https://www.csoonline.com/article/4035274/researchers-uncover-rce-attack-chains-in-popular-enterprise-credential-vaults.html" target="_blank" rel="noopener">cadenas de ataque y RCE</a>
+    <br>• HashiCorp (HCSEC-2025-22) – <a href="https://support.hashicorp.com/hc/en-us/articles/43642320190611-HCSEC-2025-22-Multiple-Vulnerabilities-Impacting-HashiCorp-Vault-and-Vault-Enterprise" target="_blank" rel="noopener">boletín y versiones parcheadas</a>
+    <br>• The Hacker News – <a href="https://thehackernews.com/2025/08/cyberark-and-hashicorp-flaws-enable.html" target="_blank" rel="noopener">síntesis y riesgos empresariales</a>
+  </p>
   <a href="../../noticias.html" class="back-link"><i class="fas fa-arrow-left"></i> Volver a noticias</a>
 </body>
 </html>
