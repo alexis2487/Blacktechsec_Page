@@ -52,6 +52,21 @@
             font-size: 1.2rem;
             opacity: 0.9;
         }
+        .news-button {
+            margin-top: 1rem;
+            padding: .8rem 1.5rem;
+            background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .3s;
+        }
+        .news-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(58, 123, 213, 0.6);
+        }
         section {
             max-width: 1000px;
             margin: auto;
@@ -175,6 +190,7 @@
     <header>
         <h1>Jair Alexis Martinez</h1>
         <p>Estudiante de Ingeniería de Sistemas | Especialista en Seguridad Informática</p>
+        <button class="news-button" onclick="location.href='noticias.html'">Foro de Noticias</button>
     </header>
 
     <section class="about">
