@@ -27,9 +27,52 @@
             margin: auto;
             padding: 2rem;
         }
+        .news-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .news-card {
+            background: #111;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(58, 123, 213, 0.3);
+        }
+        .news-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+        }
+        .news-card-content {
+            padding: 1rem;
+        }
+        .news-card-content h3 {
+            margin-top: 0;
+            color: #00d2ff;
+        }
+        .news-card-content p {
+            color: #ccc;
+            line-height: 1.4;
+        }
+        .share-buttons {
+            margin-top: 1rem;
+        }
+        .share-buttons button {
+            background: none;
+            border: none;
+            color: #00d2ff;
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .share-buttons button:hover {
+            color: #fff;
+        }
         a.back-link {
             display: inline-block;
-            margin-top: 1rem;
+            margin-top: 2rem;
             padding: .8rem 1.5rem;
             background: linear-gradient(135deg, #3a7bd5, #00d2ff);
             color: white;
@@ -49,11 +92,91 @@
         <h1>Foro de Noticias</h1>
     </header>
     <main>
-        <p>Próximamente podrás encontrar aquí contenido informativo y discusiones de la comunidad.</p>
+        <div class="news-section">
+            <!-- Card 1 -->
+            <div class="news-card">
+                <a href="noticias/noticia1/index.html"><img src="https://source.unsplash.com/800x400/?ransomware" alt="Ataque Ransomware"></a>
+                <div class="news-card-content">
+                    <h3>Ataque Ransomware Golpea a Empresa Global</h3>
+                    <p>Una multinacional enfrenta la paralización de sus servicios tras un agresivo ataque de ransomware.</p>
+                    <div class="share-buttons" data-url="noticias/noticia1/index.html">
+                        <button class="share-twitter"><i class="fab fa-twitter"></i></button>
+                        <button class="share-facebook"><i class="fab fa-facebook"></i></button>
+                        <button class="share-linkedin"><i class="fab fa-linkedin"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="news-card">
+                <a href="noticias/noticia2/index.html"><img src="https://source.unsplash.com/800x400/?iot" alt="Vulnerabilidad IoT"></a>
+                <div class="news-card-content">
+                    <h3>Nueva Vulnerabilidad en Protocolos IoT</h3>
+                    <p>Investigadores revelan fallas críticas en dispositivos conectados que podrían comprometer millones de sistemas.</p>
+                    <div class="share-buttons" data-url="noticias/noticia2/index.html">
+                        <button class="share-twitter"><i class="fab fa-twitter"></i></button>
+                        <button class="share-facebook"><i class="fab fa-facebook"></i></button>
+                        <button class="share-linkedin"><i class="fab fa-linkedin"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="news-card">
+                <a href="noticias/noticia3/index.html"><img src="https://source.unsplash.com/800x400/?artificial,intelligence,security" alt="IA y seguridad"></a>
+                <div class="news-card-content">
+                    <h3>Inteligencia Artificial Impulsa la Seguridad</h3>
+                    <p>Nuevas herramientas de IA ayudan a detectar amenazas cibernéticas con mayor precisión y velocidad.</p>
+                    <div class="share-buttons" data-url="noticias/noticia3/index.html">
+                        <button class="share-twitter"><i class="fab fa-twitter"></i></button>
+                        <button class="share-facebook"><i class="fab fa-facebook"></i></button>
+                        <button class="share-linkedin"><i class="fab fa-linkedin"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="news-card">
+                <a href="noticias/noticia4/index.html"><img src="https://source.unsplash.com/800x400/?microsoft,patch" alt="Parche Microsoft"></a>
+                <div class="news-card-content">
+                    <h3>Actualización Crítica de Microsoft Lanza Parche</h3>
+                    <p>La compañía corrige una vulnerabilidad que permitía la ejecución remota de código en sus sistemas.</p>
+                    <div class="share-buttons" data-url="noticias/noticia4/index.html">
+                        <button class="share-twitter"><i class="fab fa-twitter"></i></button>
+                        <button class="share-facebook"><i class="fab fa-facebook"></i></button>
+                        <button class="share-linkedin"><i class="fab fa-linkedin"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="news-card">
+                <a href="noticias/noticia5/index.html"><img src="https://source.unsplash.com/800x400/?quantum,computing,cybersecurity" alt="Computación cuántica"></a>
+                <div class="news-card-content">
+                    <h3>Ciberdefensa en la Era de la Computación Cuántica</h3>
+                    <p>Expertos discuten estrategias para proteger datos frente a los avances de la computación cuántica.</p>
+                    <div class="share-buttons" data-url="noticias/noticia5/index.html">
+                        <button class="share-twitter"><i class="fab fa-twitter"></i></button>
+                        <button class="share-facebook"><i class="fab fa-facebook"></i></button>
+                        <button class="share-linkedin"><i class="fab fa-linkedin"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
     </main>
     <footer>
         <p>&copy; 2024 Jair Alexis Martinez</p>
     </footer>
+    <script>
+        document.querySelectorAll('.share-buttons').forEach(group => {
+            const url = encodeURIComponent(window.location.origin + '/' + group.dataset.url);
+            group.querySelector('.share-twitter').addEventListener('click', () => {
+                window.open(`https://twitter.com/intent/tweet?url=${url}`, '_blank');
+            });
+            group.querySelector('.share-facebook').addEventListener('click', () => {
+                window.open(`https://www.facebook.com/sharer.php?u=${url}`, '_blank');
+            });
+            group.querySelector('.share-linkedin').addEventListener('click', () => {
+                window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+            });
+        });
+    </script>
 </body>
 </html>
