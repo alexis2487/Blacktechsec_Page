@@ -19,21 +19,26 @@
             min-height: 100vh;
             position: relative;
             transition: background-color 0.5s, color 0.5s;
+            background-image: radial-gradient(circle at 1px 1px, #1a1a1a 1px, transparent 0);
+            background-size: 20px 20px;
         }
         body.light-mode {
             background-color: #fff;
             color: #333;
+            background-image: radial-gradient(circle at 1px 1px, #ddd 1px, transparent 0);
+            background-size: 20px 20px;
         }
         body.light-mode section {
             background: rgba(255, 255, 255, 0.8);
         }
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 1rem auto;
+            display: block;
+            border: 3px solid #3a7bd5;
         }
         header {
             text-align: center;
@@ -183,11 +188,11 @@
     </style>
 </head>
 <body>
-    <div id="particles-js"></div>
     <div class="custom-cursor"></div>
     <div class="cursor-follower"></div>
 
     <header>
+        <img src="img/profile.svg" alt="Jair Alexis Martinez" class="profile-pic">
         <h1>Jair Alexis Martinez</h1>
         <p>Estudiante de Ingeniería de Sistemas | Especialista en Seguridad Informática</p>
         <button class="news-button" onclick="location.href='noticias.html'">Foro de Noticias</button>
@@ -242,25 +247,7 @@
 
     <button class="theme-toggle">🌓</button>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        particlesJS('particles-js', {
-            "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#3a7bd5" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 3, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#3a7bd5", "opacity": 0.3, "width": 1 },
-                "move": { "enable": true, "speed": 1, "random": true }
-            },
-            "interactivity": {
-                "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" } },
-                "modes": { "repulse": { "distance": 100, "duration": 0.4 }, "push": { "particles_nb": 4 } }
-            },
-            "retina_detect": true
-        });
-
         const cursor = document.querySelector('.custom-cursor');
         const follower = document.querySelector('.cursor-follower');
         document.addEventListener('mousemove', (e) => {
