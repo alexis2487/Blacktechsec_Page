@@ -1,0 +1,7 @@
+.vs/
+.vscode/
+*.vsidx
+*.wsuo
+*.sqlite
+DocumentLayout.json
+VSWorkspaceState.json

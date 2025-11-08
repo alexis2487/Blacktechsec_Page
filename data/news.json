@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "Seguridad en la nube",
+    "summary": "Prácticas recomendadas para proteger servicios y datos en la nube.",
+    "cover": "img/noticia1.svg",
+    "link": "noticias/noticia1/index.html"
+  },
+  {
+    "id": 2,
+    "title": "Nuevas herramientas",
+    "summary": "Herramientas y recursos para análisis forense y detección de intrusiones.",
+    "cover": "img/noticia2.svg",
+    "link": "noticias/noticia2/index.html"
+  },
+  {
+    "id": 3,
+    "title": "Talleres y cursos",
+    "summary": "Próximos talleres de ciberseguridad y entrenamientos prácticos.",
+    "cover": "img/noticia3.svg",
+    "link": "noticias/noticia3/index.html"
+  },
+  {
+    "id": 4,
+    "title": "Caso de estudio",
+    "summary": "Análisis de un incidente y lecciones aprendidas.",
+    "cover": "img/noticia4.svg",
+    "link": "noticias/noticia4/index.html"
+  },
+  {
+    "id": 5,
+    "title": "Comunidad",
+    "summary": "Cómo colaborar en proyectos y eventos de la comunidad local.",
+    "cover": "img/noticia5.svg",
+    "link": "noticias/noticia5/index.html"
+  }
+]
