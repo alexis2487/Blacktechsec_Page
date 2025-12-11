@@ -3,6 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio de Jair Alexis Martinez, estudiante de Ingeniería de Sistemas y especialista en seguridad informática con experiencia en desarrollo backend, análisis de datos y herramientas de BI.">
+    <meta name="keywords" content="ciberseguridad, seguridad informática, ingeniería de sistemas, portafolio, Jair Alexis Martinez, Python, C#, backend, análisis de datos, Power BI, GitHub, bases de datos, UNAD">
+    <meta name="author" content="Jair Alexis Martinez">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="CV y portafolio de Jair Alexis Martinez">
+    <meta property="og:description" content="Especialista en seguridad informática con experiencia en desarrollo backend, análisis de datos y business intelligence.">
+    <meta property="og:image" content="https://blacktechsec.github.io/Blacktechsec_Page/img/profile.jpg">
+    <meta property="og:url" content="https://blacktechsec.github.io/Blacktechsec_Page/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CV y portafolio de Jair Alexis Martinez">
+    <meta name="twitter:description" content="Ciberseguridad, desarrollo backend y análisis de datos en un mismo perfil profesional.">
+    <meta name="twitter:image" content="https://blacktechsec.github.io/Blacktechsec_Page/img/profile.jpg">
     <title>CV - Jair Alexis Martinez</title>
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -533,6 +545,37 @@
     <button class="theme-toggle">🌓</button>
 
     <script>
+        // Structured data to mejorar SEO y descubrimiento
+        const structuredData = {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Jair Alexis Martinez",
+            "description": "Estudiante de Ingeniería de Sistemas y especialista en seguridad informática con experiencia en desarrollo backend, análisis de datos y business intelligence.",
+            "jobTitle": "Especialista en Seguridad Informática",
+            "url": "https://blacktechsec.github.io/Blacktechsec_Page/",
+            "sameAs": [
+                "https://github.com/alexis2487",
+                "https://www.linkedin.com/in/jair-alexis-martinez-302b78305/",
+                "https://x.com/jairalexis2487"
+            ],
+            "knowsAbout": [
+                "ciberseguridad",
+                "seguridad informática",
+                "desarrollo backend",
+                "análisis de datos",
+                "business intelligence",
+                "Power BI",
+                "Python",
+                "C#",
+                "bases de datos"
+            ]
+        };
+
+        const jsonLdScript = document.createElement('script');
+        jsonLdScript.type = 'application/ld+json';
+        jsonLdScript.textContent = JSON.stringify(structuredData, null, 2);
+        document.head.appendChild(jsonLdScript);
+
         // Theme toggle functionality
         const themeToggle = document.querySelector('.theme-toggle');
         let darkMode = localStorage.getItem('darkMode') === 'true';
