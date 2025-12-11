@@ -45,15 +45,6 @@ document.querySelectorAll('section').forEach((section, index) => {
 // Initialize theme on load
 applyTheme();
 
-// Skill descriptions toggle
-document.querySelectorAll('.skill-title').forEach(title => {
-    title.addEventListener('click', () => {
-        const skillItem = title.closest('.skill-item');
-        const desc = skillItem.querySelector('.skill-description');
-        desc.classList.toggle('show');
-    });
-});
-
 // Scroll progress bar and parallax
 window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;

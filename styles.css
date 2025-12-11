@@ -377,6 +377,7 @@ h2 {
     padding: 1rem 1.2rem;
     border-radius: 12px;
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .skill-item:hover {
@@ -423,14 +424,21 @@ h2 {
 }
 
 .skill-description {
-    display: none;
+    display: block;
     margin-top: 0.5rem;
     color: var(--muted);
     font-size: 0.92rem;
     line-height: 1.5;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-.skill-description.show { display: block; }
+.skill-item:hover .skill-description,
+.skill-item:focus-within .skill-description {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 .projects-link,
 .projects a,
