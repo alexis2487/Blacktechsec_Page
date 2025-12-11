@@ -1,0 +1,16 @@
+{
+  "name": "Jair Alexis Martinez - CV",
+  "short_name": "Jair CV",
+  "description": "CV y portfolio de Jair Alexis Martinez, estudiante de Ingeniería de Sistemas especializado en ciberseguridad.",
+  "start_url": "/Blacktechsec_Page/",
+  "display": "standalone",
+  "background_color": "#f6f6f7",
+  "theme_color": "#0071e3",
+  "icons": [
+    {
+      "src": "/Blacktechsec_Page/img/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

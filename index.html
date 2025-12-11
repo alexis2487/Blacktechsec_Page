@@ -5,568 +5,292 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Jair Alexis Martinez</title>
     <link rel="icon" type="image/png" href="img/favicon.png">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-        }
+        <!-- Load critical CSS inline for above-the-fold rendering -->
+        <style id="critical-css">
+                html,body{height:100%}body{background:var(--bg,#f6f6f7);color:var(--text,#111);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;margin:0}
+                .topbar{position:sticky;top:0;backdrop-filter:saturate(180%) blur(6px);-webkit-backdrop-filter:saturate(180%) blur(6px);}
+                header{padding:3rem 1rem 2rem;text-align:center}
+                .profile-wrap{display:flex;justify-content:center;margin:0.5rem auto}
+                .profile-circle{width:150px;height:150px;border-radius:50%;display:block;object-fit:cover}
+        </style>
 
-        :root {
-            --bg: #f6f6f7;
-            --surface: #ffffff;
-            --text: #111216;
-            --muted: #6b6b74;
-            --accent: #0071e3;
-            --accent-rgb: 0, 113, 227;
-            --surface-rgb: 255, 255, 255;
-            --glass: rgba(255,255,255,0.6);
-            --radius: 12px;
-            --card-shadow: 0 8px 24px rgba(16,24,40,0.06);
-            --transition: 0.35s cubic-bezier(.2,.9,.3,1);
-            --gradient-primary: linear-gradient(135deg, #0071e3, #00a0ff);
-            --gradient-surface: linear-gradient(180deg, 
-                rgba(var(--surface-rgb), 0.95),
-                rgba(var(--surface-rgb), 0.8)
-            );
-        }
+        <!-- Non-blocking load of main stylesheet -->
+        <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="styles.css"></noscript>
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        <!-- Font Awesome removed: using inline SVG icons to avoid CDN dependency -->
 
-        body {
-            background: var(--bg);
-            color: var(--text);
-            overflow-x: hidden;
-            min-height: 100vh;
-            position: relative;
-            transition: background var(--transition), color var(--transition);
-            -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
-        }
+        <meta name="description" content="Jair Alexis Martinez — Estudiante de Ingeniería de Sistemas y especialista en Seguridad Informática. CV y proyectos.">
+        <meta name="keywords" content="Jair Alexis Martinez, CV, Ingeniería de Sistemas, Seguridad Informática, Ciberseguridad, Desarrollo Backend, Python, C#, MongoDB, Power BI">
+        <meta property="og:title" content="Jair Alexis Martinez - CV" />
+        <meta property="og:description" content="Estudiante de Ingeniería de Sistemas y especialista en Seguridad Informática. Revisa proyectos y contacto." />
+        <meta property="og:image" content="img/profile.jpg" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://alexis2487.github.io/Blacktechsec_Page/">
+    
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@jairalexis2487">
+        <meta name="twitter:title" content="Jair Alexis Martinez - CV">
+        <meta name="twitter:description" content="Estudiante de Ingeniería de Sistemas y especialista en Seguridad Informática. Revisa proyectos y contacto.">
+        <meta name="twitter:image" content="img/profile.jpg">
 
-        /* dark mode (toggled via JS adding 'dark-mode' class on body) */
-        body.dark-mode {
-            --bg: #0b0b0d;
-            --surface: #0f1112;
-            --surface-rgb: 15, 17, 18;
-            --text: #e9eef6;
-            --muted: #98a0ad;
-            --accent: #0a84ff;
-            --accent-rgb: 10, 132, 255;
-            --glass: rgba(14,14,16,0.5);
-            --gradient-surface: linear-gradient(180deg, 
-                rgba(var(--surface-rgb), 0.95),
-                rgba(var(--surface-rgb), 0.8)
-            );
+        <!-- JSON-LD structured data for Person/CV -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Jair Alexis Martinez",
+            "jobTitle": "Estudiante de Ingeniería de Sistemas",
+            "url": "https://alexis2487.github.io/Blacktechsec_Page/",
+            "sameAs": [
+                "https://github.com/alexis2487",
+                "https://www.linkedin.com/in/jair-alexis-martinez-302b78305/",
+                "https://x.com/jairalexis2487"
+            ]
         }
-        /* Profile circle: modernized with gradient ring, shadow and hover effects.
-           Place the photo file at `img/profile.jpg`. If you prefer another name,
-           update the URL used below in `.profile-circle`. */
-        .profile-wrap {
-            display: flex;
-            justify-content: center;
-            margin: 1rem auto;
-        }
-        .profile-circle {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background-image: url('img/profile.jpg'), url('img/Green Dark Modern TikTok Profile Picture (1).png'), url('img/profile.svg');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.6), inset 0 2px 8px rgba(255,255,255,0.03);
-            border: 3px solid rgba(255,255,255,0.06);
-            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
-                        box-shadow 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
-                        filter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-            filter: grayscale(20%) contrast(1.02) saturate(0.98);
-            will-change: transform, filter, box-shadow;
-            animation: fadeInUp 0.8s ease backwards 0.2s;
-        }
-        
-        .profile-circle:hover {
-            transform: translateY(-6px) rotate(-1deg) scale(1.06);
-            filter: none;
-            box-shadow: 0 20px 45px rgba(0,0,0,0.65),
-                        0 6px 20px rgba(var(--accent-rgb), 0.2),
-                        0 0 0 3px rgba(var(--accent-rgb), 0.1);
-        }
-        
-        .profile-circle::after {
-            content: '';
-            position: absolute;
-            inset: -8px;
-            border-radius: 50%;
-            background: conic-gradient(from 140deg,
-                rgba(var(--accent-rgb), 0.35),
-                rgba(58,123,213,0.35)
-            );
-            z-index: -1;
-            filter: blur(10px);
-            opacity: 0.95;
-            transition: opacity 0.6s ease;
-        }
-        
-        .profile-circle:hover::after {
-            opacity: 1;
-        }
-        /* top bar (sticky) */
-        .topbar {
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            background: var(--gradient-surface);
-            border-bottom: 1px solid rgba(16,24,40,0.04);
-            transition: background-color 0.3s ease;
-        }
-        
-        body.dark-mode .topbar {
-            background: var(--gradient-surface);
-            border-bottom: 1px solid rgba(255,255,255,0.04);
-        }
-        
-        .topbar .inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-        
-        .logo {
-            font-weight: 600;
-            font-size: 1rem;
-            color: var(--text);
-            text-decoration: none;
-            transition: opacity var(--transition);
-        }
-        
-        .logo:hover {
-            opacity: 0.8;
-        }
-        
-        .topnav a {
-            color: var(--muted);
-            text-decoration: none;
-            margin-left: 1rem;
-            position: relative;
-            padding: 0.5rem 0;
-            transition: color var(--transition);
-        }
-        
-        .topnav a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
-        
-        .topnav a:hover {
-            color: var(--text);
-        }
-        
-        .topnav a:hover::after {
-            width: 100%;
-        }
-
-        header {
-            text-align: center;
-            padding: 6rem 1rem 4rem 1rem;
-            position: relative;
-            z-index: 1;
-            max-width: 980px;
-            margin: 0 auto;
-            animation: fadeInUp 0.8s ease backwards;
-        }
-        
-        header h1 {
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            margin-bottom: .35rem;
-            font-weight: 600;
-            line-height: 1.05;
-            color: var(--text);
-            letter-spacing: -0.02em;
-        }
-        
-        header p {
-            font-size: clamp(1rem, 2vw, 1.05rem);
-            color: var(--muted);
-            margin: 0.8rem auto 1.2rem;
-            max-width: 600px;
-            line-height: 1.6;
-        }
-
-        section {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 2rem;
-            position: relative;
-            z-index: 1;
-            background: var(--surface);
-            border-radius: var(--radius);
-            box-shadow: var(--card-shadow);
-            border: 1px solid rgba(16,24,40,0.04);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        section:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--card-shadow),
-                       0 12px 40px rgba(16,24,40,0.1);
-        }
-
-        h2 {
-            color: var(--text);
-            margin-bottom: 1.5rem;
-            display: inline-block;
-            padding-bottom: 0.4rem;
-            border-bottom: 2px solid rgba(var(--accent-rgb), 0.2);
-            font-weight: 600;
-            font-size: 1.8rem;
-            letter-spacing: -0.01em;
-        }
-
-        .about p {
-            line-height: 1.7;
-            margin-bottom: 1.2rem;
-            color: var(--muted);
-            font-size: 1.05rem;
-        }
-        .skills-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .skills-list span {
-            background: var(--surface);
-            border: 1px solid rgba(var(--accent-rgb), 0.2);
-            padding: 0.8rem 1.2rem;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            color: var(--text);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skills-list span:hover {
-            background: rgba(var(--accent-rgb), 0.1);
-            border-color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        .projects a {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1.2rem;
-            padding: 0.8rem 1.4rem;
-            background: transparent;
-            color: var(--accent);
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            border: 1px solid rgba(var(--accent-rgb), 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .projects a:hover {
-            transform: translateY(-2px);
-            background: rgba(var(--accent-rgb), 0.1);
-            border-color: var(--accent);
-            box-shadow: 0 8px 30px rgba(var(--accent-rgb), 0.2);
-        }
-
-        .projects a::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(var(--accent-rgb), 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s ease, height 0.6s ease;
-        }
-
-        .projects a:active::before {
-            width: 300px;
-            height: 300px;
-        }
-        footer {
-            margin-top: 4rem;
-            padding: 3rem 1rem;
-            background: var(--surface);
-            position: relative;
-            z-index: 1;
-            color: var(--muted);
-            text-align: center;
-            border-top: 1px solid rgba(16,24,40,0.04);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 1rem 0;
-        }
-
-        .social-links a {
-            padding: 0.8rem 1.2rem;
-            background: var(--surface);
-            color: var(--text);
-            text-decoration: none;
-            border-radius: 12px;
-            border: 1px solid rgba(16,24,40,0.1);
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .social-links a:hover {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(var(--accent-rgb), 0.2);
-        }
-
-        .social-links a i {
-            font-size: 1.1rem;
-        }
-        /* subtle custom cursor removed for Apple-like minimalism; keep simple pointer */
-        .custom-cursor, .cursor-follower { display: none; }
-        .theme-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 55px;
-            height: 55px;
-            background: linear-gradient(135deg, #3a7bd5, #00d2ff);
-            border-radius: 50%;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 1.8rem;
-            box-shadow: 0 4px 15px rgba(58, 123, 213, 0.4);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .theme-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 768px) {
-            .topbar .inner {
-                padding: 12px;
-            }
-            
-            header {
-                padding: 4rem 1rem 3rem;
-            }
-            
-            section {
-                padding: 1.5rem;
-                margin: 1.5rem 1rem;
-            }
-            
-            .skills-list {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            }
-            
-            .social-links {
-                flex-direction: column;
-                align-items: stretch;
-                padding: 0 1rem;
-            }
-            
-            .social-links a {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .topnav a {
-                margin-left: 0.5rem;
-                font-size: 0.9rem;
-            }
-            
-            header h1 {
-                font-size: 2rem;
-            }
-            
-            .profile-circle {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .skills-list span {
-                padding: 0.6rem 1rem;
-                font-size: 0.85rem;
-            }
-            
-            .theme-toggle {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-            }
-        }
-
-        @media (min-width: 1200px) {
-            .skills-list {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            section {
-                padding: 2.5rem;
-            }
-        }
-    </style>
+        </script>
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
+    <div class="scroll-progress"></div>
     <div class="topbar">
         <div class="inner">
             <div class="logo">Jair Alexis</div>
             <div class="topnav">
-                <a href="index.html">Inicio</a>
+                <a href="#about">Perfil</a>
+                <a href="#projects">Proyectos</a>
+                <a href="#contact">Contacto</a>
                 <a href="https://github.com/alexis2487" target="_blank">GitHub</a>
             </div>
         </div>
     </div>
 
     <header>
-        <!-- Profile: the site expects the user's photo to be at img/profile.jpg -->
-        <div class="profile-wrap">
-            <div class="profile-circle" role="img" aria-label="Foto de Jair Alexis Martinez"></div>
-        </div>
-        <h1>Jair Alexis Martinez</h1>
-        <p>Estudiante de Ingeniería de Sistemas | Especialista en Seguridad Informática</p>
-        <div style="display:flex;gap:0.6rem;justify-content:center;align-items:center;">
-            <a class="projects-link" href="https://github.com/alexis2487" target="_blank" style="display:inline-block;padding:.5rem 1rem;border-radius:999px;border:1px solid rgba(16,24,40,0.06);text-decoration:none;color:var(--accent);font-weight:600;">Ver GitHub</a>
+        <div class="hero-grid">
+            <div class="hero-main">
+                <div class="profile-wrap profile-circle-wrapper">
+                    <img src="img/profile.jpg" alt="Foto de Jair Alexis Martinez" class="profile-circle" loading="lazy" width="150" height="150">
+                </div>
+                <div class="badge-row">
+                    <span class="pill pill-accent">Seguridad informática</span>
+                    <span class="pill pill-ghost">Backend y datos</span>
+                    <span class="pill pill-soft">Disponible remoto</span>
+                </div>
+                <h1 id="typewriter">Jair Alexis Martinez</h1>
+                <p>Estudiante de último semestre de Ingeniería de Sistemas en la UNAD, enfocado en backend, análisis de datos y seguridad informática aplicada.</p>
+                <div class="hero-actions">
+                    <a class="projects-link primary" href="https://github.com/alexis2487" target="_blank" rel="noopener noreferrer">
+                        <!-- GitHub SVG -->
+                        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.612-4.042-1.612-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.304.76-1.604-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.468-2.382 1.236-3.222-.123-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.289-1.552 3.295-1.23 3.295-1.23.655 1.653.242 2.874.12 3.176.77.84 1.235 1.913 1.235 3.222 0 4.61-2.807 5.624-5.479 5.921.43.371.815 1.102.815 2.222 0 1.606-.015 2.896-.015 3.286 0 .32.216.694.825.576C20.565 22.092 24 17.592 24 12.297 24 5.67 18.627.297 12 .297z"/></svg>
+                        Ver GitHub
+                    </a>
+                    <a class="projects-link ghost" href="#contact">Agendar conversación</a>
+                </div>
+            </div>
+            <div class="hero-card">
+                <p class="hero-card__eyebrow">Enfocado en impacto</p>
+                <div class="hero-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Stack</span>
+                        <p>C#, Python, SQL/NoSQL</p>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Especialidad</span>
+                        <p>APIs seguras, análisis de datos, BI</p>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Ubicación</span>
+                        <p>Colombia · Remoto LATAM</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section class="about">
+    <section class="about" id="about">
         <h2>Perfil</h2>
         <p>
-            Estudiante de último semestre en Ingeniería de Sistemas en la UNAD, con conocimientos en desarrollo backend y análisis de datos. Manejo C#, Python, bases de datos SQL y NoSQL, así como herramientas de BI como Power BI y Microsoft Copilot Agents. Actualmente curso una especialización en Seguridad Informática, fortaleciendo mi perfil en protección de datos, redes y sistemas. Me caracterizo por un aprendizaje autónomo, enfoque a resultados y capacidad de integrarme a equipos para aportar soluciones tecnológicas innovadoras.
+            Estudiante de último semestre de Ingeniería de Sistemas en la UNAD, con foco en desarrollo backend y analítica. Manejo C#, Python, SQL, NoSQL y BI (Power BI y Microsoft Copilot Agents). Actualmente curso la especialización en Seguridad Informática para robustecer la protección de datos, redes y sistemas. Trabajo con mentalidad de producto, aprendizaje continuo y colaboración para entregar soluciones fiables.
         </p>
     </section>
 
-    <section class="education">
+    <section class="education" id="education">
         <h2>Educación</h2>
-        <p><strong>UNAD</strong> - Ingeniería de Sistemas (Último semestre)</p>
-        <p><strong>UNAD</strong> - Especialización en Seguridad Informática (En curso)</p>
+        <p><strong>UNAD</strong> - Ingeniería de Sistemas (último semestre)</p>
+        <p><strong>UNAD</strong> - Especialización en Seguridad Informática (en curso)</p>
     </section>
 
-    <section class="skills">
-        <h2>Habilidades</h2>
-        <div class="skills-list">
-            <span>Lenguajes: C#, Python</span>
-            <span>Bases de datos: MySQL, MongoDB, Oracle APEX</span>
-            <span>Data Science: NumPy, Pandas</span>
-            <span>Business Intelligence: Power BI, Microsoft Copilot Agents</span>
-            <span>Versionamiento: Git, GitHub</span>
-            <span>Herramientas: Jira, Microsoft Excel</span>
+    <section class="experience" id="experience">
+        <h2>Experiencia y certificaciones</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Certificación en Ciberseguridad</h3>
+                <p class="timeline-date">2024</p>
+                <p>Fundamentos de redes, criptografía y protección de datos con enfoque en controles prácticos.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Proyecto de desarrollo backend</h3>
+                <p class="timeline-date">2023 - 2024</p>
+                <p>APIs RESTful con C# y .NET, integraciones con SQL/NoSQL y despliegues ligeros.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Análisis de datos con Python</h3>
+                <p class="timeline-date">2023</p>
+                <p>Procesamiento con NumPy y Pandas; visualización y storytelling de datos con Power BI.</p>
+            </div>
         </div>
     </section>
 
-    <section class="projects">
+    <section class="skills" id="skills">
+        <h2>Habilidades</h2>
+        <div class="skills-list">
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-title">C#</span>
+                    <span class="skill-percentage">85%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" data-percentage="85"></div>
+                </div>
+                <p class="skill-description">Lenguaje orientado a objetos para desarrollo robusto</p>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-title">Python</span>
+                    <span class="skill-percentage">80%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" data-percentage="80"></div>
+                </div>
+                <p class="skill-description">Versátil para scripting y análisis de datos</p>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-title">MySQL</span>
+                    <span class="skill-percentage">75%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" data-percentage="75"></div>
+                </div>
+                <p class="skill-description">Sistema de base de datos relacional confiable</p>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-title">MongoDB</span>
+                    <span class="skill-percentage">70%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" data-percentage="70"></div>
+                </div>
+                <p class="skill-description">Base de datos NoSQL flexible</p>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-title">Power BI</span>
+                    <span class="skill-percentage">78%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" data-percentage="78"></div>
+                </div>
+                <p class="skill-description">Herramienta de visualización de datos interactiva</p>
+            </div>
+            <div class="skill-item">
+                <div class="skill-header">
+                    <span class="skill-title">Git</span>
+                    <span class="skill-percentage">90%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" data-percentage="90"></div>
+                </div>
+                <p class="skill-description">Control de versiones distribuido</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
         <h2>Proyectos</h2>
-        <p>Explora mis proyectos en GitHub:</p>
-        <a href="https://github.com/alexis2487" target="_blank">
-            <i class="fab fa-github" aria-hidden="true">&#8203;</i> Ver GitHub
+        <p>Explora mis proyectos destacados en GitHub:</p>
+        <div class="projects-grid" id="projects-container">
+            <!-- Projects will be loaded here -->
+        </div>
+        <a href="https://github.com/alexis2487" target="_blank" rel="noopener noreferrer" class="projects-link">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:.45rem"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.612-4.042-1.612-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.304.76-1.604-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.468-2.382 1.236-3.222-.123-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.289-1.552 3.295-1.23 3.295-1.23.655 1.653.242 2.874.12 3.176.77.84 1.235 1.913 1.235 3.222 0 4.61-2.807 5.624-5.479 5.921.43.371.815 1.102.815 2.222 0 1.606-.015 2.896-.015 3.286 0 .32.216.694.825.576C20.565 22.092 24 17.592 24 12.297 24 5.67 18.627.297 12 .297z"/></svg>
+            Ver todos en GitHub
         </a>
     </section>
 
 
+    <section class="contact" id="contact">
+        <h2>Contacto</h2>
+        <p>¿Interesado en colaborar? Envíame un mensaje.</p>
+        <form id="contact-form" action="https://formspree.io/f/xpznqrya" method="POST" aria-labelledby="contact-heading">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" id="name" name="name" required aria-describedby="name-help">
+                <span id="name-help" class="sr-only">Ingresa tu nombre completo</span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required aria-describedby="email-help">
+                <span id="email-help" class="sr-only">Ingresa tu dirección de email válida</span>
+            </div>
+            <div class="form-group">
+                <label for="message">Mensaje</label>
+                <textarea id="message" name="message" rows="5" required aria-describedby="message-help"></textarea>
+                <span id="message-help" class="sr-only">Describe tu mensaje o consulta</span>
+            </div>
+            <button type="submit" class="submit-btn">Enviar mensaje</button>
+        </form>
+    </section>
 
     <footer>
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/jair-alexis-martinez-302b78305/" target="_blank">
-                <i class="fab fa-linkedin" aria-hidden="true">&#8203;</i> LinkedIn
+            <a href="https://www.linkedin.com/in/jair-alexis-martinez-302b78305/" target="_blank" rel="noopener noreferrer">
+                <!-- LinkedIn SVG -->
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:.45rem"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8.98h5V24H0V8.98zm7.5 0h4.79v2.06h.07c.67-1.27 2.3-2.6 4.74-2.6 5.07 0 6 3.34 6 7.68V24H17v-7.2c0-1.72-.03-3.93-2.4-3.93-2.4 0-2.77 1.87-2.77 3.8V24H7.5V8.98z"/></svg>
+                LinkedIn
             </a>
-            <a href="https://x.com/jairalexis2487" target="_blank">
-                <i class="fab fa-twitter" aria-hidden="true">&#8203;</i> Twitter
+            <a href="https://x.com/jairalexis2487" target="_blank" rel="noopener noreferrer">
+                <!-- X/Twitter SVG -->
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:.45rem"><path d="M23.954 4.569c-.885.392-1.83.656-2.825.775 1.014-.608 1.794-1.57 2.163-2.723-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-2.72 0-4.924 2.21-4.924 4.93 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.06c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.376 4.6 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.179 1.397 4.768 2.211 7.557 2.211 9.054 0 14-7.497 14-13.986 0-.21 0-.42-.015-.63.962-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>
+                Twitter
             </a>
-            <a href="mailto:Jairalexis2487@gmail.com" target="_blank">
-                <i class="fas fa-envelope" aria-hidden="true">&#8203;</i> Email
+            <a href="mailto:Jairalexis2487@gmail.com" target="_blank" rel="noopener noreferrer">
+                <!-- Email SVG -->
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:.45rem"><path d="M12 13.065L.025 4.5V19.5C.025 20.328.697 21 1.525 21h20.95c.828 0 1.5-.672 1.5-1.5V4.5L12 13.065zM12 11L24 2.5H0L12 11z"/></svg>
+                Email
             </a>
         </div>
     </footer>
 
-    <button class="theme-toggle">🌓</button>
+    <button class="theme-toggle" aria-label="Cambiar tema">☀️</button>
 
-    <script>
-        // Theme toggle functionality
-        const themeToggle = document.querySelector('.theme-toggle');
-        let darkMode = localStorage.getItem('darkMode') === 'true';
-        
-        function applyTheme() {
-            document.body.classList.toggle('dark-mode', darkMode);
-            themeToggle.textContent = darkMode ? '🌙' : '☀️';
-            localStorage.setItem('darkMode', darkMode);
-        }
-        
-        themeToggle.addEventListener('click', () => {
-            darkMode = !darkMode;
-            applyTheme();
-        });
-        
-        // Section animations
-        document.querySelectorAll('section').forEach((section, index) => {
-            const observer = new IntersectionObserver(
-                entries => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.style.animation = `fadeInUp 0.6s ease ${index * 0.1}s forwards`;
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                },
-                { threshold: 0.1 }
-            );
-            
-            observer.observe(section);
-        });
-        
-        // Initialize theme
-        applyTheme();
+    <script src="main.js" defer></script>
+    <script type="module">
+    // Popmotion via CDN to add physics-based hover for profile (no build required)
+    import { spring, listen } from 'https://cdn.skypack.dev/popmotion';
+
+    const profile = document.querySelector('.profile-circle');
+    if (profile) {
+        let currentAnim;
+        const enter = () => {
+            if (currentAnim && currentAnim.stop) currentAnim.stop();
+            currentAnim = spring({ from: 0, to: -12, stiffness: 200, damping: 14 }).start({
+                update: v => profile.style.transform = `perspective(800px) translateY(${v}px) rotateX(6deg) rotateZ(-1deg) scale(1.05)`
+            });
+        };
+        const leave = () => {
+            if (currentAnim && currentAnim.stop) currentAnim.stop();
+            currentAnim = spring({ from: parseFloat(profile.style.transform.replace(/[^-+0-9.]/g, '')) || -12, to: 0, stiffness: 160, damping: 16 }).start({
+                update: v => profile.style.transform = `perspective(800px) translateY(${v}px) rotateX(0deg) rotateZ(0deg) scale(1)`
+            });
+        };
+        listen(profile, 'mouseenter').start(enter);
+        listen(profile, 'mouseleave').start(leave);
+        listen(profile, 'touchstart').start(enter);
+        listen(profile, 'touchend').start(leave);
+    }
     </script>
 </body>
 </html>
