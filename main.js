@@ -132,33 +132,6 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     });
 });
 
-// Animate progress bars on scroll
-function animateProgressBars() {
-    const skillsSection = document.querySelector('.skills');
-    const observer = new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const progressFills = entry.target.querySelectorAll('.progress-fill');
-                    progressFills.forEach(fill => {
-                        const percentage = fill.getAttribute('data-percentage');
-                        fill.style.width = percentage + '%';
-                    });
-                    observer.unobserve(entry.target);
-                }
-            });
-        },
-        { threshold: 0.5 }
-    );
-
-    if (skillsSection) {
-        observer.observe(skillsSection);
-    }
-}
-
-// Initialize progress bars animation
-animateProgressBars();
-
 // Typewriter effect for name
 function typewriterEffect() {
     const element = document.getElementById('typewriter');
