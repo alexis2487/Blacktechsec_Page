@@ -394,10 +394,14 @@ h2 {
     font-size: 1.1rem;
 }
 
-.skill-description {
+.skill-bullets {
+    margin: 0.65rem 0 0;
+    padding-left: 1.1rem;
     color: var(--muted);
+    display: grid;
+    gap: 0.35rem;
     font-size: 0.95rem;
-    line-height: 1.5;
+    line-height: 1.45;
 }
 
 .projects-link,
@@ -513,6 +517,21 @@ h2 {
     padding: 0.35rem 0.6rem;
     border-radius: 999px;
     background: rgba(var(--accent-rgb), 0.08);
+}
+
+
+.project-details {
+    display: grid;
+    gap: 0.65rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-details p {
+    border-left: 3px solid rgba(var(--accent-rgb), 0.35);
+    padding: 0.65rem 0.85rem;
+    background: rgba(var(--accent-rgb), 0.04);
+    color: var(--muted);
+    border-radius: 8px;
 }
 
 .contact { max-width: 640px; margin: 2rem auto; }
