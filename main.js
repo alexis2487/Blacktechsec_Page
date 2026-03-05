@@ -61,42 +61,6 @@ window.addEventListener('scroll', () => {
 });
 
 
-// Load and display GitHub projects
-async function loadProjects() {
-    try {
-        const response = await fetch('https://api.github.com/users/alexis2487/repos?sort=updated&per_page=6');
-        const repos = await response.json();
-        const container = document.getElementById('projects-container');
-
-        repos.forEach(repo => {
-            if (repo.fork) return; // Skip forks
-            const projectItem = document.createElement('a');
-            projectItem.href = repo.html_url;
-            projectItem.className = 'project-item';
-            projectItem.target = '_blank';
-            projectItem.rel = 'noopener noreferrer';
-            projectItem.innerHTML = `
-                <h3>${repo.name}</h3>
-                <p>${repo.description || 'Sin descripción'}</p>
-                <div class="project-meta">
-                    <span>★ ${repo.stargazers_count}</span>
-                    <span>⑂ ${repo.forks_count}</span>
-                    <span>${repo.language || 'N/A'}</span>
-                </div>
-            `;
-            container.appendChild(projectItem);
-        });
-    } catch (error) {
-        console.error('Error loading projects:', error);
-        // Fallback: show message
-        const container = document.getElementById('projects-container');
-        container.innerHTML = '<p>Error al cargar proyectos. <a href="https://github.com/alexis2487" target="_blank">Ver en GitHub</a></p>';
-    }
-}
-
-// Load projects on page load
-loadProjects();
-
 // Handle contact form submission
 document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
